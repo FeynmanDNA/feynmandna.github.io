@@ -1,0 +1,449 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Distributed Training · Apache SINGA</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;!--- Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements.  See the NOTICE file distributed with this work for additional information regarding copyright ownership.  The ASF licenses this file to you under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License.  You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and limitations under the License.  --&gt;"/><meta name="docsearch:version" content="next"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Distributed Training · Apache SINGA"/><meta property="og:type" content="website"/><meta property="og:url" content="https://feynmandna.github.io/"/><meta property="og:description" content="&lt;!--- Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements.  See the NOTICE file distributed with this work for additional information regarding copyright ownership.  The ASF licenses this file to you under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this file except in compliance with the License.  You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and limitations under the License.  --&gt;"/><meta property="og:image" content="https://feynmandna.github.io/img/singa_twitter_banner.jpeg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://feynmandna.github.io/img/singa_twitter_banner.jpeg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://feynmandna.github.io/blog/atom.xml" title="Apache SINGA Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://feynmandna.github.io/blog/feed.xml" title="Apache SINGA Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/singa.png" alt="Apache SINGA"/></a><a href="/versions"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/next/installation" target="_self">Docs</a></li><li class=""><a href="/docs/next/source-repository" target="_self">Community</a></li><li class=""><a href="/blog/" target="_self">News</a></li><li class=""><a target="_self"></a></li><li class=""><a href="https://github.com/apache/singa" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Guides</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/docs/next/software-stack">Software Stack</a></li><li class="navListItem"><a class="navItem" href="/docs/next/benchmark-train">Benchmark for Distributed Training</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/device">Device</a></li><li class="navListItem"><a class="navItem" href="/docs/next/tensor">Tensor</a></li><li class="navListItem"><a class="navItem" href="/docs/next/autograd">Autograd in SINGA</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/next/dist-train">Distributed Training</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Model Zoo</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/model-zoo-cnn-cifar10">Train CNN over Cifar-10</a></li><li class="navListItem"><a class="navItem" href="/docs/next/model-zoo-char-rnn">Train Char-RNN over plain text</a></li><li class="navListItem"><a class="navItem" href="/docs/next/model-zoo-rbm-mnist">Train a RBM model against MNIST dataset</a></li><li class="navListItem"><a class="navItem" href="/docs/next/model-zoo-imagenet-alexnet">Train AlexNet over ImageNet</a></li><li class="navListItem"><a class="navItem" href="/docs/next/model-zoo-imagenet-densenet">Image Classification using DenseNet</a></li><li class="navListItem"><a class="navItem" href="/docs/next/model-zoo-imagenet-googlenet">Image Classification using GoogleNet</a></li><li class="navListItem"><a class="navItem" href="/docs/next/model-zoo-imagenet-inception">Image Classification using Inception V4</a></li><li class="navListItem"><a class="navItem" href="/docs/next/model-zoo-imagenet-resnet">Image Classification using Residual Networks</a></li><li class="navListItem"><a class="navItem" href="/docs/next/model-zoo-imagenet-vgg">Image Classification using VGG</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Development</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/next/download-singa">Download SINGA</a></li><li class="navListItem"><a class="navItem" href="/docs/next/build">Build SINGA from Source</a></li><li class="navListItem"><a class="navItem" href="/docs/next/contribute-code">How to Contribute Code</a></li><li class="navListItem"><a class="navItem" href="/docs/next/contribute-docs">How to Contribute to Documentation</a></li><li class="navListItem"><a class="navItem" href="/docs/next/how-to-release">How to Prepare a Release</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/apache/singa-doc/blob/master/docs-site/docs/dist-train.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Distributed Training</h1></header><article><div><span><!--- Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements.  See the NOTICE file distributed with this work for additional information regarding copyright ownership.  The ASF licenses this file to you under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.  You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and limitations under the License.  -->
+<p>SINGA supports distributed data parallel training and evaulation process based on multiprocessing. The following is the illustration of the data parallel training:</p>
+<p><img src="/docs/assets/MPI.png" alt="MPI.png"></p>
+<p>In the distributed training, each process runs a training script which utilizes one GPU. Each process has an individual rank, which gives information of which GPU the individual process is using. The training data is partitioned, so that each process can evaluate the sub-gradient based on the partitioned training data. Once the sub-graident is calculated on each processes, the overall stochastic gradient is obtained by all-reducing the sub-gradients evaluated by all processes. The all-reduce operation is supported by the NVidia Collective Communication Library (NCCL).</p>
+<p>The all-reduce operation by NCCL can be used to reduce and synchronize the parameters from different GPUs. Let's consider a data partitioned distributed training using 4 GPUs. Once the sub-gradients from the 4 GPUs are calculated, the NCCL can perform the all-reduce process so that all the GPUs can get the sum of the sub-gradients over the GPUs:</p>
+<p><img src="/docs/assets/AllReduce.png" alt="AllReduce.png"></p>
+<p>Finally, the parameter update of Stochastic Gradient Descent (SGD) can then be performed by using the overall stochastic gradient obtained by the all-reduce process.</p>
+<h2><a class="anchor" aria-hidden="true" id="python-distopt-methods"></a><a href="#python-distopt-methods" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Python DistOpt Methods:</h2>
+<p>There are a list of methods for distributed training with DistOpt:</p>
+<ol>
+<li>Create a DistOpt with the SGD object and device assignment:</li>
+</ol>
+<pre><code class="hljs css language-python">sgd = opt.SGD(lr=<span class="hljs-number">0.005</span>, momentum=<span class="hljs-number">0.9</span>, weight_decay=<span class="hljs-number">1e-5</span>)
+sgd = opt.DistOpt(sgd)
+dev = device.create_cuda_gpu_on(sgd.rank_in_local)
+</code></pre>
+<p> </p>
+<ol start="2">
+<li>Backward propagation and distributed parameter update:</li>
+</ol>
+<pre><code class="hljs css language-python">sgd.backward_and_update(loss)
+</code></pre>
+<p>     loss is the objective function of the deep learning model optimization,</p>
+<p>     e.g. for classification problem it can be the output of the softmax_cross_entropy function.</p>
+<p> </p>
+<ol start="3">
+<li>Backward propagation and distributed parameter update, using half precision for gradient communication:</li>
+</ol>
+<pre><code class="hljs css language-python">sgd.backward_and_update_half(loss)
+</code></pre>
+<p>     It converts the gradients to 16 bits half precision format before allreduce</p>
+<p> </p>
+<ol start="4">
+<li>Backward propagation and distributed asychronous training with partial parameter synchronization:</li>
+</ol>
+<pre><code class="hljs css language-python">sgd.backward_and_partial_update(loss)
+</code></pre>
+<p>     It performs asychronous training where one parameter partition is all-reduced per iteration.</p>
+<p> </p>
+<ol start="5">
+<li>Backward propagation and distributed parameter update, with sparsification to reduce data transmission:</li>
+</ol>
+<pre><code class="hljs css language-python">sgd.backward_and_spars_update(loss)
+</code></pre>
+<p>     It applies sparsification schemes to transfer only the gradient elements which are significant.</p>
+<p> </p>
+<h2><a class="anchor" aria-hidden="true" id="instruction-to-use"></a><a href="#instruction-to-use" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Instruction to Use:</h2>
+<p>SINGA supports two ways to launch the distributed training, namely I. MPI (Message Passing Interface) and II. python multiprocessing.</p>
+<h3><a class="anchor" aria-hidden="true" id="i-using-mpi"></a><a href="#i-using-mpi" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>I. Using MPI</h3>
+<p>The following are the detailed steps to start up a distributed training with MPI, using MNIST dataset as an example:</p>
+<ol>
+<li>Import SINGA and Miscellaneous Libraries used for the training</li>
+</ol>
+<pre><code class="hljs css language-python"><span class="hljs-keyword">from</span> singa <span class="hljs-keyword">import</span> singa_wrap <span class="hljs-keyword">as</span> singa
+<span class="hljs-keyword">from</span> singa <span class="hljs-keyword">import</span> autograd
+<span class="hljs-keyword">from</span> singa <span class="hljs-keyword">import</span> tensor
+<span class="hljs-keyword">from</span> singa <span class="hljs-keyword">import</span> device
+<span class="hljs-keyword">from</span> singa <span class="hljs-keyword">import</span> opt
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">import</span> gzip
+<span class="hljs-keyword">import</span> codecs
+<span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> urllib.request
+</code></pre>
+<ol start="2">
+<li>Create a Convolutional Neural Network Model</li>
+</ol>
+<pre><code class="hljs css language-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CNN</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.conv1 = autograd.Conv2d(<span class="hljs-number">1</span>, <span class="hljs-number">20</span>, <span class="hljs-number">5</span>, padding=<span class="hljs-number">0</span>)
+        self.conv2 = autograd.Conv2d(<span class="hljs-number">20</span>, <span class="hljs-number">50</span>, <span class="hljs-number">5</span>, padding=<span class="hljs-number">0</span>)
+        self.linear1 = autograd.Linear(<span class="hljs-number">4</span> * <span class="hljs-number">4</span> * <span class="hljs-number">50</span>, <span class="hljs-number">500</span>)
+        self.linear2 = autograd.Linear(<span class="hljs-number">500</span>, <span class="hljs-number">10</span>)
+        self.pooling1 = autograd.MaxPool2d(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>)
+        self.pooling2 = autograd.MaxPool2d(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, padding=<span class="hljs-number">0</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, x)</span>:</span>
+        y = self.conv1(x)
+        y = autograd.relu(y)
+        y = self.pooling1(y)
+        y = self.conv2(y)
+        y = autograd.relu(y)
+        y = self.pooling2(y)
+        y = autograd.flatten(y)
+        y = self.linear1(y)
+        y = autograd.relu(y)
+        y = self.linear2(y)
+        <span class="hljs-keyword">return</span> y
+
+<span class="hljs-comment"># create model</span>
+model = CNN()
+</code></pre>
+<ol start="3">
+<li>Create a Distributed Optimizer Object and Device Assignment</li>
+</ol>
+<pre><code class="hljs css language-python">sgd = opt.SGD(lr=<span class="hljs-number">0.005</span>, momentum=<span class="hljs-number">0.9</span>, weight_decay=<span class="hljs-number">1e-5</span>)
+sgd = opt.DistOpt(sgd)
+dev = device.create_cuda_gpu_on(sgd.rank_in_local)
+</code></pre>
+<ol start="4">
+<li>Prepare the Training and Evaluation Data</li>
+</ol>
+<pre><code class="hljs css language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">load_dataset</span><span class="hljs-params">()</span>:</span>
+    train_x_url = <span class="hljs-string">'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz'</span>
+    train_y_url = <span class="hljs-string">'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz'</span>
+    valid_x_url = <span class="hljs-string">'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz'</span>
+    valid_y_url = <span class="hljs-string">'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'</span>
+    train_x = read_image_file(check_exist_or_download(train_x_url)).astype(
+        np.float32)
+    train_y = read_label_file(check_exist_or_download(train_y_url)).astype(
+        np.float32)
+    valid_x = read_image_file(check_exist_or_download(valid_x_url)).astype(
+        np.float32)
+    valid_y = read_label_file(check_exist_or_download(valid_y_url)).astype(
+        np.float32)
+    <span class="hljs-keyword">return</span> train_x, train_y, valid_x, valid_y
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">check_exist_or_download</span><span class="hljs-params">(url)</span>:</span>
+
+    download_dir = <span class="hljs-string">'/tmp/'</span>
+
+    name = url.rsplit(<span class="hljs-string">'/'</span>, <span class="hljs-number">1</span>)[<span class="hljs-number">-1</span>]
+    filename = os.path.join(download_dir, name)
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.isfile(filename):
+        print(<span class="hljs-string">"Downloading %s"</span> % url)
+        urllib.request.urlretrieve(url, filename)
+    <span class="hljs-keyword">return</span> filename
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_label_file</span><span class="hljs-params">(path)</span>:</span>
+    <span class="hljs-keyword">with</span> gzip.open(path, <span class="hljs-string">'rb'</span>) <span class="hljs-keyword">as</span> f:
+        data = f.read()
+        <span class="hljs-keyword">assert</span> get_int(data[:<span class="hljs-number">4</span>]) == <span class="hljs-number">2049</span>
+        length = get_int(data[<span class="hljs-number">4</span>:<span class="hljs-number">8</span>])
+        parsed = np.frombuffer(data, dtype=np.uint8, offset=<span class="hljs-number">8</span>).reshape(
+            (length))
+        <span class="hljs-keyword">return</span> parsed
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_int</span><span class="hljs-params">(b)</span>:</span>
+    <span class="hljs-keyword">return</span> int(codecs.encode(b, <span class="hljs-string">'hex'</span>), <span class="hljs-number">16</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_image_file</span><span class="hljs-params">(path)</span>:</span>
+    <span class="hljs-keyword">with</span> gzip.open(path, <span class="hljs-string">'rb'</span>) <span class="hljs-keyword">as</span> f:
+        data = f.read()
+        <span class="hljs-keyword">assert</span> get_int(data[:<span class="hljs-number">4</span>]) == <span class="hljs-number">2051</span>
+        length = get_int(data[<span class="hljs-number">4</span>:<span class="hljs-number">8</span>])
+        num_rows = get_int(data[<span class="hljs-number">8</span>:<span class="hljs-number">12</span>])
+        num_cols = get_int(data[<span class="hljs-number">12</span>:<span class="hljs-number">16</span>])
+        parsed = np.frombuffer(data, dtype=np.uint8, offset=<span class="hljs-number">16</span>).reshape(
+            (length, <span class="hljs-number">1</span>, num_rows, num_cols))
+        <span class="hljs-keyword">return</span> parsed
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">to_categorical</span><span class="hljs-params">(y, num_classes)</span>:</span>
+    y = np.array(y, dtype=<span class="hljs-string">"int"</span>)
+    n = y.shape[<span class="hljs-number">0</span>]
+    categorical = np.zeros((n, num_classes))
+    categorical[np.arange(n), y] = <span class="hljs-number">1</span>
+    categorical = categorical.astype(np.float32)
+    <span class="hljs-keyword">return</span> categorical
+
+
+<span class="hljs-comment"># Prepare training and valadiation data</span>
+train_x, train_y, test_x, test_y = load_dataset()
+IMG_SIZE = <span class="hljs-number">28</span>
+num_classes=<span class="hljs-number">10</span>
+train_y = to_categorical(train_y, num_classes)
+test_y = to_categorical(test_y, num_classes)
+
+<span class="hljs-comment"># Normalization</span>
+train_x = train_x / <span class="hljs-number">255</span>
+test_x = test_x / <span class="hljs-number">255</span>
+</code></pre>
+<ol start="5">
+<li>Data Partitioning of the Training and Evaluation Datasets</li>
+</ol>
+<pre><code class="hljs css language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">data_partition</span><span class="hljs-params">(dataset_x, dataset_y, rank_in_global, world_size)</span>:</span>
+    data_per_rank = dataset_x.shape[<span class="hljs-number">0</span>] // world_size
+    idx_start = rank_in_global * data_per_rank
+    idx_end = (rank_in_global + <span class="hljs-number">1</span>) * data_per_rank
+    <span class="hljs-keyword">return</span> dataset_x[idx_start: idx_end], dataset_y[idx_start: idx_end]
+
+train_x, train_y = data_partition(train_x, train_y, sgd.rank_in_global, sgd.world_size)
+test_x, test_y = data_partition(test_x, test_y, sgd.rank_in_global, sgd.world_size)
+</code></pre>
+<ol start="6">
+<li>Configuring the Training Loop Variables</li>
+</ol>
+<pre><code class="hljs css language-python">max_epoch = <span class="hljs-number">10</span>
+batch_size = <span class="hljs-number">64</span>
+tx = tensor.Tensor((batch_size, <span class="hljs-number">1</span>, IMG_SIZE, IMG_SIZE), dev, tensor.float32)
+ty = tensor.Tensor((batch_size, num_classes), dev, tensor.int32)
+num_train_batch = train_x.shape[<span class="hljs-number">0</span>] // batch_size
+num_test_batch = test_x.shape[<span class="hljs-number">0</span>] // batch_size
+idx = np.arange(train_x.shape[<span class="hljs-number">0</span>], dtype=np.int32)
+</code></pre>
+<ol start="7">
+<li>Initialize and Synchronize the Model Parameters</li>
+</ol>
+<pre><code class="hljs css language-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sychronize</span><span class="hljs-params">(tensor, dist_opt)</span>:</span>
+    dist_opt.all_reduce(tensor.data)
+    tensor /= dist_opt.world_size
+
+<span class="hljs-comment">#Sychronize the initial parameter</span>
+autograd.training = <span class="hljs-literal">True</span>
+x = np.random.randn(batch_size, <span class="hljs-number">1</span>, IMG_SIZE, IMG_SIZE).astype(np.float32)
+y = np.zeros( shape=(batch_size, num_classes), dtype=np.int32)
+tx.copy_from_numpy(x)
+ty.copy_from_numpy(y)
+out = model.forward(tx)
+loss = autograd.softmax_cross_entropy(out, ty)
+<span class="hljs-keyword">for</span> p, g <span class="hljs-keyword">in</span> autograd.backward(loss):
+    sychronize(p, sgd)
+</code></pre>
+<ol start="8">
+<li>Start the Training and Evaluation Loop</li>
+</ol>
+<pre><code class="hljs css language-python"><span class="hljs-comment"># Function to all reduce Accuracy and Loss from Multiple Devices</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reduce_variable</span><span class="hljs-params">(variable, dist_opt, reducer)</span>:</span>
+    reducer.copy_from_numpy(variable)
+    dist_opt.all_reduce(reducer.data)
+    dist_opt.wait()
+    output=tensor.to_numpy(reducer)
+    <span class="hljs-keyword">return</span> output
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">accuracy</span><span class="hljs-params">(pred, target)</span>:</span>
+    y = np.argmax(pred, axis=<span class="hljs-number">1</span>)
+    t = np.argmax(target, axis=<span class="hljs-number">1</span>)
+    a = y == t
+    <span class="hljs-keyword">return</span> np.array(a, <span class="hljs-string">"int"</span>).sum()
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">augmentation</span><span class="hljs-params">(x, batch_size)</span>:</span>
+    xpad = np.pad(x, [[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">4</span>]], <span class="hljs-string">'symmetric'</span>)
+    <span class="hljs-keyword">for</span> data_num <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, batch_size):
+        offset = np.random.randint(<span class="hljs-number">8</span>, size=<span class="hljs-number">2</span>)
+        x[data_num,:,:,:] = xpad[data_num, :, offset[<span class="hljs-number">0</span>]: offset[<span class="hljs-number">0</span>] + <span class="hljs-number">28</span>, offset[<span class="hljs-number">1</span>]: offset[<span class="hljs-number">1</span>] + <span class="hljs-number">28</span>]
+        if_flip = np.random.randint(<span class="hljs-number">2</span>)
+        <span class="hljs-keyword">if</span> (if_flip):
+            x[data_num, :, :, :] = x[data_num, :, :, ::<span class="hljs-number">-1</span>]
+    <span class="hljs-keyword">return</span> x
+
+<span class="hljs-comment"># Training and Evaulation Loop</span>
+<span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> range(max_epoch):
+    start_time = time.time()
+    np.random.shuffle(idx)
+
+    <span class="hljs-keyword">if</span>(sgd.rank_in_global==<span class="hljs-number">0</span>):
+        print(<span class="hljs-string">'Starting Epoch %d:'</span> % (epoch))
+
+    <span class="hljs-comment"># Training Phase</span>
+    autograd.training = <span class="hljs-literal">True</span>
+    train_correct = np.zeros(shape=[<span class="hljs-number">1</span>],dtype=np.float32)
+    test_correct = np.zeros(shape=[<span class="hljs-number">1</span>],dtype=np.float32)
+    train_loss = np.zeros(shape=[<span class="hljs-number">1</span>],dtype=np.float32)
+
+    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> range(num_train_batch):
+        x = train_x[idx[b * batch_size: (b + <span class="hljs-number">1</span>) * batch_size]]
+        x = augmentation(x, batch_size)
+        y = train_y[idx[b * batch_size: (b + <span class="hljs-number">1</span>) * batch_size]]
+        tx.copy_from_numpy(x)
+        ty.copy_from_numpy(y)
+        out = model.forward(tx)
+        loss = autograd.softmax_cross_entropy(out, ty)
+        train_correct += accuracy(tensor.to_numpy(out), y)
+        train_loss += tensor.to_numpy(loss)[<span class="hljs-number">0</span>]
+        sgd.backward_and_update(loss)
+
+    <span class="hljs-comment"># Reduce the Evaluation Accuracy and Loss from Multiple Devices</span>
+    reducer = tensor.Tensor((<span class="hljs-number">1</span>,), dev, tensor.float32)
+    train_correct = reduce_variable(train_correct, sgd, reducer)
+    train_loss = reduce_variable(train_loss, sgd, reducer)
+
+    <span class="hljs-comment"># Output the Training Loss and Accuracy</span>
+    <span class="hljs-keyword">if</span>(sgd.rank_in_global==<span class="hljs-number">0</span>):
+        print(<span class="hljs-string">'Training loss = %f, training accuracy = %f'</span> %
+              (train_loss, train_correct / (num_train_batch*batch_size*sgd.world_size)), flush=<span class="hljs-literal">True</span>)
+
+    <span class="hljs-comment"># Evaluation Phase</span>
+    autograd.training = <span class="hljs-literal">False</span>
+    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> range(num_test_batch):
+        x = test_x[b * batch_size: (b + <span class="hljs-number">1</span>) * batch_size]
+        y = test_y[b * batch_size: (b + <span class="hljs-number">1</span>) * batch_size]
+        tx.copy_from_numpy(x)
+        ty.copy_from_numpy(y)
+        out_test = model.forward(tx)
+        test_correct += accuracy(tensor.to_numpy(out_test), y)
+
+    <span class="hljs-comment"># Reduce the Evaulation Accuracy from Multiple Devices</span>
+    test_correct = reduce_variable(test_correct, sgd, reducer)
+
+    <span class="hljs-comment"># Output the Evaluation Accuracy</span>
+    <span class="hljs-keyword">if</span>(sgd.rank_in_global==<span class="hljs-number">0</span>):
+        print(<span class="hljs-string">'Evaluation accuracy = %f, Elapsed Time = %fs'</span> %
+              (test_correct / (num_test_batch*batch_size*sgd.world_size), time.time() - start_time ), flush=<span class="hljs-literal">True</span>)
+</code></pre>
+<ol start="9">
+<li><p>Save the above training code in a python file, e.g. mnist_dist_demo.py</p></li>
+<li><p>Generate a hostfile to be used by the MPI, e.g. the hostfile below uses 4 processes and hence 4 GPUs for the training.</p></li>
+</ol>
+<pre><code class="hljs css language-python">cat host_file
+</code></pre>
+<pre><code class="hljs">localhost:4
+</code></pre>
+<ol start="11">
+<li>Finally, use the MPIEXEC command to Execute the Multi-GPUs Training with the hostfile:</li>
+</ol>
+<pre><code class="hljs css language-python">mpiexec --hostfile host_file python3 mnist_dist_demo.py
+</code></pre>
+<p>     It could result in several times speed up compared to the single GPU training.</p>
+<pre><code class="hljs">Starting Epoch <span class="hljs-number">0</span>:
+Training loss = <span class="hljs-number">673.246277</span>, training accuracy = <span class="hljs-number">0.760517</span>
+Evaluation accuracy = <span class="hljs-number">0.930489</span>, Elapsed Time = <span class="hljs-number">0.757460</span>s
+Starting Epoch <span class="hljs-number">1</span>:
+Training loss = <span class="hljs-number">240.009323</span>, training accuracy = <span class="hljs-number">0.919705</span>
+Evaluation accuracy = <span class="hljs-number">0.964042</span>, Elapsed Time = <span class="hljs-number">0.707835</span>s
+Starting Epoch <span class="hljs-number">2</span>:
+Training loss = <span class="hljs-number">168.806030</span>, training accuracy = <span class="hljs-number">0.944010</span>
+Evaluation accuracy = <span class="hljs-number">0.967448</span>, Elapsed Time = <span class="hljs-number">0.710606</span>s
+Starting Epoch <span class="hljs-number">3</span>:
+Training loss = <span class="hljs-number">139.131454</span>, training accuracy = <span class="hljs-number">0.953676</span>
+Evaluation accuracy = <span class="hljs-number">0.971755</span>, Elapsed Time = <span class="hljs-number">0.710840</span>s
+Starting Epoch <span class="hljs-number">4</span>:
+Training loss = <span class="hljs-number">117.479889</span>, training accuracy = <span class="hljs-number">0.960487</span>
+Evaluation accuracy = <span class="hljs-number">0.974659</span>, Elapsed Time = <span class="hljs-number">0.711388</span>s
+Starting Epoch <span class="hljs-number">5</span>:
+Training loss = <span class="hljs-number">103.085609</span>, training accuracy = <span class="hljs-number">0.965812</span>
+Evaluation accuracy = <span class="hljs-number">0.979267</span>, Elapsed Time = <span class="hljs-number">0.712624</span>s
+Starting Epoch <span class="hljs-number">6</span>:
+Training loss = <span class="hljs-number">97.565521</span>, training accuracy = <span class="hljs-number">0.966897</span>
+Evaluation accuracy = <span class="hljs-number">0.979868</span>, Elapsed Time = <span class="hljs-number">0.714128</span>s
+Starting Epoch <span class="hljs-number">7</span>:
+Training loss = <span class="hljs-number">86.971985</span>, training accuracy = <span class="hljs-number">0.970903</span>
+Evaluation accuracy = <span class="hljs-number">0.979868</span>, Elapsed Time = <span class="hljs-number">0.715277</span>s
+Starting Epoch <span class="hljs-number">8</span>:
+Training loss = <span class="hljs-number">79.487328</span>, training accuracy = <span class="hljs-number">0.973341</span>
+Evaluation accuracy = <span class="hljs-number">0.982372</span>, Elapsed Time = <span class="hljs-number">0.715577</span>s
+Starting Epoch <span class="hljs-number">9</span>:
+Training loss = <span class="hljs-number">74.658951</span>, training accuracy = <span class="hljs-number">0.974793</span>
+Evaluation accuracy = <span class="hljs-number">0.982672</span>, Elapsed Time = <span class="hljs-number">0.717571</span>s
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="ii-using-python-multiprocessing"></a><a href="#ii-using-python-multiprocessing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>II. Using Python multiprocessing</h3>
+<p>For single node, we can use Python multiprocessing module instead of MPI. It needs just a small portion of code changes:</p>
+<ol>
+<li><p>Put all the above training codes in a function, e.g. train_mnist_cnn</p></li>
+<li><p>Generate a NCCIdHolder, define the number of GPUs to be used in the training process (gpu_per_node), and uses the multiprocessing to launch the training code with the arguments.</p></li>
+</ol>
+<pre><code class="hljs css language-python">    <span class="hljs-comment"># Generate a NCCL ID to be used for collective communication</span>
+    nccl_id = singa.NcclIdHolder()
+
+    <span class="hljs-comment"># Define the number of GPUs to be used in the training process</span>
+    gpu_per_node = <span class="hljs-number">8</span>
+
+    <span class="hljs-comment"># Define and launch the multi-processing</span>
+    <span class="hljs-keyword">import</span> multiprocessing
+    process = []
+    <span class="hljs-keyword">for</span> gpu_num <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, gpu_per_node):
+        process.append(multiprocessing.Process(target=train_mnist_cnn, args=(nccl_id, gpu_num, gpu_per_node)))
+
+    <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> process:
+        p.start()
+</code></pre>
+<ol start="3">
+<li>In the training code, it should pass the arguments defined above to the DistOpt object.</li>
+</ol>
+<pre><code class="hljs css language-python">sgd = opt.DistOpt(sgd, nccl_id=nccl_id, gpu_num=gpu_num, gpu_per_node=gpu_per_node)
+
+</code></pre>
+<ol start="4">
+<li>Finally, we can launch the code with the multiprocessing module.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="full-examples"></a><a href="#full-examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Full Examples</h2>
+<p>The full examples of the distributed training using the MNIST dataset are available in the examples folder of SINGA:</p>
+<ol>
+<li><p>MPI: examples/autograd/mnist_dist.py</p></li>
+<li><p>Python Multiprocessing: examples/autograd/mnist_multiprocess.py</p></li>
+</ol>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 16/01/2020</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/next/autograd"><span class="arrow-prev">← </span><span>Autograd in SINGA</span></a><a class="docs-next button" href="/docs/next/model-zoo-cnn-cifar10"><span>Train CNN over Cifar-10</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#python-distopt-methods">Python DistOpt Methods:</a></li><li><a href="#instruction-to-use">Instruction to Use:</a><ul class="toc-headings"><li><a href="#i-using-mpi">I. Using MPI</a></li><li><a href="#ii-using-python-multiprocessing">II. Using Python multiprocessing</a></li></ul></li><li><a href="#full-examples">Full Examples</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/singa-logo-square.png" alt="Apache SINGA" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/installation">Getting Started</a><a href="/docs/device">Guides</a><a href="/en/#">API Reference (coming soon)</a><a href="/docs/model-zoo-cnn-cifar10">Model Zoo</a><a href="/docs/download-singa">Development</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="/docs/history-singa">SINGA History</a><a href="/docs/team-list">SINGA Team</a><a href="/blog">SINGA News</a><a>GitHub</a><div class="social"><a class="github-button" data-count-href="/apache/singa/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">apache/singa-doc</a></div><div class="social"><a href="https://twitter.com/ApacheSINGA" class="twitter-follow-button">Follow @ApacheSINGA</a></div></div><div><h5>Apache Software Foundation</h5><a href="https://apache.org/" target="_blank" rel="noreferrer noopener">Foundation</a><a href="http://www.apache.org/licenses/" target="_blank" rel="noreferrer noopener">License</a><a href="http://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noreferrer noopener">Sponsorship</a><a href="http://www.apache.org/foundation/thanks.html" target="_blank" rel="noreferrer noopener">Thanks</a><a href="http://www.apache.org/events/current-event" target="_blank" rel="noreferrer noopener">Events</a><a href="http://www.apache.org/security/" target="_blank" rel="noreferrer noopener">Security</a></div></section><div style="width:100%;text-align:center"><a href="https://apache.org/" target="_blank" rel="noreferrer noopener" class="ApacheOpenSource"><img src="/img/asf_logo_wide.svg" alt="Apache Open Source"/></a><section class="copyright" style="max-width:60%;margin:0 auto">Copyright © 2020
+   The Apache Software Foundation. All rights reserved.
+   Apache SINGA, Apache, the Apache feather logo, and
+   the Apache SINGA project logos are trademarks of The
+   Apache Software Foundation. All other marks mentioned
+   may be trademarks or registered trademarks of their
+   respective owners.</section></div></footer></div><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
