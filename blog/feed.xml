@@ -5,14 +5,14 @@
         <link>https://feynmandna.github.io/blog</link>
         <description>The best place to stay up-to-date with the latest Apache SINGA news and events.</description>
         <lastBuildDate>Wed, 16 Oct 2019 06:00:00 GMT</lastBuildDate>
-        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <image>
             <title>Apache SINGA Blog</title>
             <url>https://feynmandna.github.io/img/singa.png</url>
             <link>https://feynmandna.github.io/blog</link>
         </image>
-        <copyright>Copyright © 2019
+        <copyright>Copyright © 2020
    The Apache Software Foundation. All rights reserved.
    Apache SINGA, Apache, the Apache feather logo, and
    the Apache SINGA project logos are trademarks of The
